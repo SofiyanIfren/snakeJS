@@ -12,7 +12,7 @@ function initGame(){
     document.getElementById("#score").innerHTML = score
     randomApple = [Math.floor(Math.random()*(canvas.width/gridSize))*gridSize, Math.floor(Math.random()*(canvas.height/gridSize))*gridSize]
     ctx.fillStyle = "rgb(200, 0, 0)" // Initialisation du jeu en rouge
-    setInterval(moveSnake, 70) // Démarrage du serpent
+    setInterval(moveSnake, 100) // Démarrage du serpent
 }
 function launchGame (){
     snakeBody = [] // tableau contenant les points du corps du serpent
@@ -89,7 +89,7 @@ function moveSnake (){ // fonction appelée toutes les 100 ms (cf setInterval)
             }
             break
         case "bottom": // bottom
-            if ((currentPosition[1] - gridSize) < canvas.height){  // On vérifie qu'on est pas au bord du mur
+            if ((currentPosition[1] + gridSize) < canvas.height){  // On vérifie qu'on est pas au bord du mur
                 direction = "bottom"
                 currentPosition[1] = currentPosition[1] + gridSize
                 drawSnake()    
